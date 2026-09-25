@@ -1,0 +1,7 @@
+# Logs e arquivos temporários
+node_modules/
+.tempmediaStorage/
+.system_generated/
+*.log
+.DS_Store
+Thumbs.db
