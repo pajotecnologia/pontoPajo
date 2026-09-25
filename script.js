@@ -1,6 +1,6 @@
 /**
  * PAJO TECNOLOGIA — EZPOINT WEB & RWTECH
- * Script de Vídeos Oficiais e Interatividade
+ * Script Oficial de Vídeos e Interatividade
  */
 
 // BASE DE VÍDEOS OFICIAIS DO CANAL RWTECH (@rwtech_oficial)
@@ -142,10 +142,7 @@ document.addEventListener("DOMContentLoaded", () => {
   if (yearEl) yearEl.textContent = new Date().getFullYear();
 
   initTheme();
-  initClock();
-  initPunchSimulator();
   initVideoHub();
-  initRoiCalc();
   initMobileDrawer();
 });
 
@@ -162,63 +159,6 @@ function initTheme() {
       document.documentElement.setAttribute("data-theme", next);
       localStorage.setItem("pajo_theme", next);
       if (window.lucide) window.lucide.createIcons();
-    });
-  }
-}
-
-/* CLOCK */
-function initClock() {
-  const clockDigits = document.getElementById("liveClock");
-  const clockDate = document.getElementById("liveDate");
-
-  function tick() {
-    const now = new Date();
-    const h = String(now.getHours()).padStart(2, "0");
-    const m = String(now.getMinutes()).padStart(2, "0");
-    const s = String(now.getSeconds()).padStart(2, "0");
-
-    if (clockDigits) clockDigits.textContent = `${h}:${m}:${s}`;
-    if (clockDate) {
-      const options = { weekday: "long", day: "numeric", month: "long" };
-      const dateText = now.toLocaleDateString("pt-BR", options);
-      clockDate.textContent = dateText.charAt(0).toUpperCase() + dateText.slice(1);
-    }
-  }
-  tick();
-  setInterval(tick, 1000);
-}
-
-/* PUNCH SIMULATOR */
-function initPunchSimulator() {
-  const btn = document.getElementById("btnTestPunch");
-  const feedback = document.getElementById("punchFeedback");
-  const feedbackTxt = document.getElementById("punchFeedbackTxt");
-  const ptLastStep = document.getElementById("ptLastStep");
-  const ptLastHour = document.getElementById("ptLastHour");
-
-  if (btn) {
-    btn.addEventListener("click", () => {
-      const now = new Date();
-      const timeStr = `${String(now.getHours()).padStart(2, "0")}:${String(now.getMinutes()).padStart(2, "0")}`;
-
-      if (ptLastStep) ptLastStep.className = "pt-item done";
-      if (ptLastHour) ptLastHour.textContent = timeStr;
-
-      if (feedback && feedbackTxt) {
-        feedback.classList.add("show");
-        feedbackTxt.textContent = `Ponto registrado às ${timeStr}h! GPS validado & Hash SHA-256 gerado.`;
-        if (window.lucide) window.lucide.createIcons();
-
-        btn.disabled = true;
-        btn.innerHTML = `<i data-lucide="check"></i> Marcação Sincronizada no EZPoint Web`;
-        if (window.lucide) window.lucide.createIcons();
-
-        setTimeout(() => {
-          btn.disabled = false;
-          btn.innerHTML = `<i data-lucide="map-pin"></i> Simular Nova Batida com Geolocalização`;
-          if (window.lucide) window.lucide.createIcons();
-        }, 6000);
-      }
     });
   }
 }
@@ -255,7 +195,7 @@ function initVideoHub() {
       container.innerHTML = `
         <div class="v-empty">
           <p>Nenhum treinamento encontrado para "${query}".</p>
-          <button class="btn btn-secondary btn-sm" style="margin-top: 0.75rem;" onclick="resetSearch()">
+          <button class="btn btn-primary btn-sm" style="margin-top: 0.75rem;" onclick="resetSearch()">
             Ver Todos os Vídeos
           </button>
         </div>
@@ -357,7 +297,7 @@ function initModal() {
     const bullets = document.getElementById("modalBullets");
     if (bullets && video.keyPoints) {
       bullets.innerHTML = `
-        <strong>Tópicos principais abordados neste tutorial:</strong>
+        <strong>Tópicos abordados neste treinamento:</strong>
         ${video.keyPoints.map(p => `<div>&bull; ${p}</div>`).join("")}
       `;
     }
@@ -368,9 +308,7 @@ function initModal() {
       ytLink.href = ytDirectUrl;
     }
 
-    // Embed search video playlist on YouTube
     if (iframe) {
-      // Use YouTube official channel videos embed or safe embed
       iframe.src = `https://www.youtube-nocookie.com/embed?listType=search&list=${encodeURIComponent(video.searchQuery)}`;
     }
 
@@ -400,28 +338,6 @@ function initModal() {
   });
 }
 
-/* ROI CALCULATOR */
-function initRoiCalc() {
-  const slider = document.getElementById("calcSlider");
-  const countEl = document.getElementById("calcEmpCount");
-  const savedHoursEl = document.getElementById("calcSavedHours");
-
-  if (!slider) return;
-
-  function update() {
-    const count = parseInt(slider.value, 10);
-    if (countEl) countEl.textContent = `${count} funcionários`;
-
-    const totalMinutes = count * 22;
-    const hours = (totalMinutes / 60).toFixed(1);
-
-    if (savedHoursEl) savedHoursEl.textContent = `${hours} Horas`;
-  }
-
-  slider.addEventListener("input", update);
-  update();
-}
-
 /* MOBILE DRAWER */
 function initMobileDrawer() {
   const toggle = document.getElementById("mobileToggle");
@@ -448,14 +364,12 @@ window.handleFormSubmit = function(e) {
   const name = document.getElementById("formName").value.trim();
   const company = document.getElementById("formCompany").value.trim();
   const phone = document.getElementById("formPhone").value.trim();
-  const employees = document.getElementById("formEmployees").value;
   const subject = document.getElementById("formSubject").value;
 
-  const msg = `*Contato via Site - PAJO & EZPoint Web (RWTECH)*%0A%0A` +
+  const msg = `*Contato - PAJO Tecnologia & EZPoint Web (RWTECH)*%0A%0A` +
               `*Nome:* ${encodeURIComponent(name)}%0A` +
               `*Empresa:* ${encodeURIComponent(company)}%0A` +
               `*Telefone:* ${encodeURIComponent(phone)}%0A` +
-              `*Funcionários:* ${encodeURIComponent(employees)}%0A` +
               `*Interesse:* ${encodeURIComponent(subject)}`;
 
   window.open(`https://wa.me/5511999999999?text=${msg}`, "_blank");
