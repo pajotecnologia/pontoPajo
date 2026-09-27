@@ -762,20 +762,91 @@ function initMobileDrawer() {
   }
 }
 
-/* CONTACT FORM */
-window.handleFormSubmit = function(e) {
+/* CONTACT FORM (ENVIO DIRETO PARA PAULOJSILVA@LIVE.COM) */
+window.handleFormSubmit = async function(e) {
   e.preventDefault();
 
   const name = document.getElementById("formName").value.trim();
   const company = document.getElementById("formCompany").value.trim();
+  const email = document.getElementById("formEmail") ? document.getElementById("formEmail").value.trim() : "";
   const phone = document.getElementById("formPhone").value.trim();
   const subject = document.getElementById("formSubject").value;
+  const message = document.getElementById("formMessage") ? document.getElementById("formMessage").value.trim() : "";
 
-  const msg = `*Contato - PAJO Tecnologia & EZPoint Web (RWTECH)*%0A%0A` +
-              `*Nome:* ${encodeURIComponent(name)}%0A` +
-              `*Empresa:* ${encodeURIComponent(company)}%0A` +
-              `*Telefone:* ${encodeURIComponent(phone)}%0A` +
-              `*Interesse:* ${encodeURIComponent(subject)}`;
+  const submitBtn = document.getElementById("submitBtn");
+  const submitBtnText = document.getElementById("submitBtnText");
+  const statusBox = document.getElementById("formStatus");
 
-  window.open(`https://wa.me/5511999999999?text=${msg}`, "_blank");
+  if (submitBtn) submitBtn.disabled = true;
+  if (submitBtnText) submitBtnText.textContent = "Enviando mensagem...";
+  if (statusBox) {
+    statusBox.style.display = "none";
+    statusBox.className = "form-status-box";
+  }
+
+  const payload = {
+    _subject: `Novo Contato Site PAJO: ${name} - ${company}`,
+    _template: "table",
+    _captcha: "false",
+    Nome: name,
+    Empresa: company,
+    Email: email,
+    Telefone: phone,
+    Interesse: subject,
+    Mensagem: message || "Nenhuma mensagem adicional informada.",
+    DataEnvio: new Date().toLocaleString("pt-BR")
+  };
+
+  try {
+    const response = await fetch("https://formsubmit.co/ajax/paulojsilva@live.com", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "Accept": "application/json"
+      },
+      body: JSON.stringify(payload)
+    });
+
+    if (response.ok) {
+      if (statusBox) {
+        statusBox.className = "form-status-box success";
+        statusBox.innerHTML = `
+          <i data-lucide="check-circle-2"></i>
+          <div>
+            <strong>Mensagem enviada com sucesso!</strong>
+            <p>Recebemos suas informações e entraremos em contato em breve através do e-mail <strong>${email}</strong> ou telefone.</p>
+          </div>
+        `;
+        statusBox.style.display = "flex";
+      }
+      document.getElementById("leadForm").reset();
+      showToastNotification("Mensagem enviada com sucesso para paulojsilva@live.com!");
+    } else {
+      throw new Error("Erro no servidor de envio");
+    }
+  } catch (err) {
+    console.warn("Erro ao enviar por AJAX, oferecendo fallback:", err);
+    if (statusBox) {
+      statusBox.className = "form-status-box error";
+      const mailtoLink = `mailto:paulojsilva@live.com?subject=${encodeURIComponent(payload._subject)}&body=${encodeURIComponent(
+        `Nome: ${name}\nEmpresa: ${company}\nEmail: ${email}\nTelefone: ${phone}\nInteresse: ${subject}\nMensagem: ${message}`
+      )}`;
+      statusBox.innerHTML = `
+        <i data-lucide="alert-circle"></i>
+        <div>
+          <strong>Aviso no envio automático:</strong>
+          <p>Você também pode enviar diretamente clicando no botão abaixo:</p>
+          <a href="${mailtoLink}" class="btn btn-sm btn-outline" style="margin-top: 0.5rem; display: inline-flex;">
+            <i data-lucide="mail"></i> Abrir no seu aplicativo de E-mail
+          </a>
+        </div>
+      `;
+      statusBox.style.display = "flex";
+    }
+  } finally {
+    if (submitBtn) submitBtn.disabled = false;
+    if (submitBtnText) submitBtnText.textContent = "Enviar Mensagem para a PAJO";
+    if (window.lucide) window.lucide.createIcons();
+  }
 };
+

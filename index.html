@@ -442,22 +442,34 @@
 
               <div class="form-row">
                 <div class="form-group">
+                  <label for="formEmail">Seu E-mail Corporativo:</label>
+                  <input type="email" id="formEmail" required placeholder="seuemail@empresa.com.br">
+                </div>
+                <div class="form-group">
                   <label for="formPhone">WhatsApp / Telefone:</label>
                   <input type="tel" id="formPhone" required placeholder="(11) 99999-9999">
                 </div>
-                <div class="form-group">
-                  <label for="formSubject">Interesse Principal:</label>
-                  <select id="formSubject">
-                    <option value="Software EZPoint Web + App Mobile">Software EZPoint Web + App Mobile</option>
-                    <option value="Relógio de Ponto Físico RWTECH + Software">Relógio de Ponto Físico RWTECH + Software</option>
-                    <option value="Treinamento e Implantação para RH">Treinamento e Implantação para RH</option>
-                    <option value="Adequação à Portaria 671 MTE">Adequação à Portaria 671 MTE</option>
-                  </select>
-                </div>
               </div>
 
-              <button type="submit" class="btn btn-primary btn-full btn-lg">
-                <i data-lucide="send"></i> Enviar Mensagem via WhatsApp
+              <div class="form-group">
+                <label for="formSubject">Interesse Principal:</label>
+                <select id="formSubject">
+                  <option value="Software EZPoint Web + App Mobile">Software EZPoint Web + App Mobile</option>
+                  <option value="Relógio de Ponto Físico RWTECH + Software">Relógio de Ponto Físico RWTECH + Software</option>
+                  <option value="Treinamento e Implantação para RH">Treinamento e Implantação para RH</option>
+                  <option value="Adequação à Portaria 671 MTE">Adequação à Portaria 671 MTE</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label for="formMessage">Mensagem ou Dúvidas (Opcional):</label>
+                <textarea id="formMessage" rows="3" placeholder="Conte-nos mais sobre sua necessidade (quantidade de colaboradores, relógios atuais, etc.)..."></textarea>
+              </div>
+
+              <div id="formStatus" class="form-status-box" style="display: none;"></div>
+
+              <button type="submit" id="submitBtn" class="btn btn-primary btn-full btn-lg">
+                <i data-lucide="mail"></i> <span id="submitBtnText">Enviar Mensagem para a PAJO</span>
               </button>
             </form>
           </div>
