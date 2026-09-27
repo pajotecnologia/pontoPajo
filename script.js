@@ -1,148 +1,313 @@
 /**
  * PAJO TECNOLOGIA — EZPOINT WEB & RWTECH
- * Script Oficial de Vídeos e Interatividade
+ * Script Oficial de Treinamentos, Sincronização Dinâmica com o YouTube e Interatividade
  */
 
-// BASE DE VÍDEOS OFICIAIS DO CANAL RWTECH (@rwtech_oficial)
-const RWTECH_VIDEOS = [
+const PLAYLIST_ID = "PLVRRzSJdt2auVSiXtSTKkhodyjZAJZnKY";
+const PLAYLIST_URL = `https://www.youtube.com/playlist?list=${PLAYLIST_ID}`;
+
+// BASE OFICIAL DE VÍDEOS DA SÉRIE "EZPOINT WEB: DIRETO AO PONTO" (RWTECH)
+const DEFAULT_VIDEOS = [
   {
-    id: "ezpoint-one-uso",
-    youtubeId: "6jg6iRtrUA0",
-    title: "Como usar o aplicativo EzPoint One para Registro de Ponto",
-    category: "mobile",
-    categoryName: "App Mobile",
-    duration: "Tutorial Oficial",
+    id: "CBVuQZ39h5Q",
+    youtubeId: "CBVuQZ39h5Q",
+    title: "EzPoint Web: Direto ao ponto - Preferências da Plataforma",
+    category: "configuracao",
+    categoryName: "Configurações & Parâmetros",
+    duration: "Aula 15",
     author: "RwTech Oficial",
-    directUrl: "https://www.youtube.com/watch?v=6jg6iRtrUA0",
-    thumbnail: "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=800&auto=format&fit=crop&q=80",
-    description: "Tutorial prático demonstrando o passo a passo de como o colaborador realiza o registro de ponto pelo aplicativo móvel EzPoint One.",
+    published: "2025-08-19",
+    directUrl: `https://www.youtube.com/watch?v=CBVuQZ39h5Q&list=${PLAYLIST_ID}`,
+    thumbnail: "https://img.youtube.com/vi/CBVuQZ39h5Q/hqdefault.jpg",
+    description: "Configurações essenciais de preferências do sistema EzPoint Web para adequar a plataforma às regras e rotinas da sua empresa.",
     keyPoints: [
-      "Login individual e seguro do colaborador por CPF e senha.",
-      "Registro de ponto com validação biométrica e cerca geográfica (GPS).",
-      "Consulta e acompanhamento das marcações em tempo real."
+      "Ajuste de preferências globais e operacionais do sistema.",
+      "Definição de regras de tolerância, notificações e permissões.",
+      "Personalização do comportamento da plataforma de ponto."
     ]
   },
   {
-    id: "ezpoint-infinity-acesso",
-    youtubeId: "qYtbYP6FjNU",
-    title: "Como fazer o primeiro acesso ao aplicativo EzPoint Infinity",
-    category: "mobile",
-    categoryName: "App Mobile",
-    duration: "Passo a Passo",
+    id: "hwWQr4vnmOs",
+    youtubeId: "hwWQr4vnmOs",
+    title: "EzPoint Web: Direto ao ponto - Utilitários na Plataforma EzpointWeb",
+    category: "configuracao",
+    categoryName: "Configurações & Parâmetros",
+    duration: "Aula 14",
     author: "RwTech Oficial",
-    directUrl: "https://www.youtube.com/watch?v=qYtbYP6FjNU",
-    thumbnail: "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?w=800&auto=format&fit=crop&q=80",
-    description: "Configuração inicial e primeiro acesso no aplicativo EzPoint Infinity para uso coletivo da empresa em tablets ou celulares.",
+    published: "2025-08-12",
+    directUrl: `https://www.youtube.com/watch?v=hwWQr4vnmOs&list=${PLAYLIST_ID}`,
+    thumbnail: "https://img.youtube.com/vi/hwWQr4vnmOs/hqdefault.jpg",
+    description: "Aprenda a utilizar os recursos e utilitários da plataforma para otimizar rotinas administrativas e manutenção preventiva de dados.",
     keyPoints: [
-      "Ativação do dispositivo corporativo para múltiplos colaboradores.",
-      "Reconhecimento facial com teste de vivacidade antifraude.",
-      "Modo online e offline inteligente."
+      "Ferramentas práticas e atalhos úteis do painel EzPoint Web.",
+      "Manutenção e verificação de integridade de dados de ponto.",
+      "Agilização de processos cotidianos e rotinas do RH."
     ]
   },
   {
-    id: "blue-relogio-ponto",
-    youtubeId: "XPaC7gzwsRo",
-    title: "Blue: O relógio de ponto com comunicação direta com o EzPoint Web",
-    category: "relogios",
-    categoryName: "Relógios RWTECH",
-    duration: "Apresentação Técnica",
+    id: "UnQdHV7eg6E",
+    youtubeId: "UnQdHV7eg6E",
+    title: "EzPoint Web: Direto ao ponto - Funções Secundárias do Cadastro no Sistema",
+    category: "configuracao",
+    categoryName: "Configurações & Parâmetros",
+    duration: "Aula 13",
     author: "RwTech Oficial",
-    directUrl: "https://www.youtube.com/watch?v=XPaC7gzwsRo",
-    thumbnail: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=800&auto=format&fit=crop&q=80",
-    description: "Conheça o relógio de ponto Blue da RwTech: sem necessidade de pendrives, com coleta automática de marcações via nuvem para o EzPoint Web.",
+    published: "2025-07-29",
+    directUrl: `https://www.youtube.com/watch?v=UnQdHV7eg6E&list=${PLAYLIST_ID}`,
+    thumbnail: "https://img.youtube.com/vi/UnQdHV7eg6E/hqdefault.jpg",
+    description: "Detalhes avançados no cadastro de colaboradores: cargos, centros de custo, dados complementares e parâmetros específicos.",
     keyPoints: [
-      "Comunicação direta TCP/IP e nuvem com o EzPoint Web.",
-      "Emissão de comprovante e biometria de alta velocidade.",
-      "100% certificado pelo INMETRO e Ministério do Trabalho."
+      "Estruturação hierárquica, cargos e centros de custos.",
+      "Campos complementares e documentação individual.",
+      "Vinculação de funcionários a regras e tabelas de horários."
     ]
   },
   {
-    id: "ezpoint-web-direto-ponto",
-    youtubeId: "6jg6iRtrUA0",
-    title: "EzPoint Web: Gestão de Jornada e Tratamento de Ponto em Nuvem",
-    category: "iniciante",
-    categoryName: "Primeiros Passos",
-    duration: "Série Oficial",
+    id: "AeflJ-m5av4",
+    youtubeId: "AeflJ-m5av4",
+    title: "EzPoint Web: Direto ao ponto - Webserver do Relógio Blue",
+    category: "relogios_hardware",
+    categoryName: "Relógios & Hardware",
+    duration: "Aula 12",
     author: "RwTech Oficial",
-    directUrl: "https://www.youtube.com/@rwtech_oficial/videos",
-    thumbnail: "https://images.unsplash.com/photo-1551836022-d5d88e9218df?w=800&auto=format&fit=crop&q=80",
-    description: "Visão geral das ferramentas do software EzPoint Web para o RH: cadastro de departamentos, funcionários e parâmetros da empresa.",
+    published: "2025-07-22",
+    directUrl: `https://www.youtube.com/watch?v=AeflJ-m5av4&list=${PLAYLIST_ID}`,
+    thumbnail: "https://img.youtube.com/vi/AeflJ-m5av4/hqdefault.jpg",
+    description: "Acesso e configuração do webserver interno do relógio de ponto Blue da RwTech para comunicação direta e em nuvem com o EzPoint Web.",
     keyPoints: [
-      "Painel de controle unificado 100% em nuvem.",
-      "Configuração de preferências e regras de ponto da empresa.",
-      "Auditoria e controle total de jornada."
+      "Acesso à interface web interna do equipamento Blue da RwTech.",
+      "Configuração de rede TCP/IP e comunicação em nuvem sem pendrive.",
+      "Diagnóstico de status, coleta em tempo real e sincronização."
     ]
   },
   {
-    id: "escalas-horarios-ezpoint",
-    youtubeId: "6jg6iRtrUA0",
-    title: "EzPoint Web: Cadastro de Escalas de Trabalho e Tolerâncias CLT",
-    category: "iniciante",
-    categoryName: "Primeiros Passos",
-    duration: "Guia Prático",
+    id: "1z9gH5z4ZIM",
+    youtubeId: "1z9gH5z4ZIM",
+    title: "EzPoint Web: Direto ao ponto - Funções Secundárias da Plataforma",
+    category: "configuracao",
+    categoryName: "Configurações & Parâmetros",
+    duration: "Aula 11",
     author: "RwTech Oficial",
-    directUrl: "https://www.youtube.com/@rwtech_oficial/videos",
-    thumbnail: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=800&auto=format&fit=crop&q=80",
-    description: "Como parametrizar escalas 12x36, 5x2, 6x1, ciclos de folga e a tolerância automática de 10 minutos conforme a CLT no EzPoint Web.",
+    published: "2025-07-15",
+    directUrl: `https://www.youtube.com/watch?v=1z9gH5z4ZIM&list=${PLAYLIST_ID}`,
+    thumbnail: "https://img.youtube.com/vi/1z9gH5z4ZIM/hqdefault.jpg",
+    description: "Exploração de ferramentas auxiliares, configurações de segurança e recursos que facilitam o dia a dia do operador de ponto.",
     keyPoints: [
-      "Criação de tabelas de horários fixos e flexíveis.",
-      "Parametrização automática das regras sindicais.",
-      "Vínculo de funcionários por setor em lote."
+      "Recursos extras do painel EzPoint Web para produtividade.",
+      "Otimização de filtros, visualização e exportações rápidas.",
+      "Controles adicionais de segurança da informação."
     ]
   },
   {
-    id: "espelho-fechamento-folha",
-    youtubeId: "6jg6iRtrUA0",
-    title: "EzPoint Web: Análise do Espelho de Ponto e Fechamento Mensal",
-    category: "relatorios",
-    categoryName: "Espelho & Fechamento",
-    duration: "Operação RH",
+    id: "5BtErS0HWVE",
+    youtubeId: "5BtErS0HWVE",
+    title: "EzPoint Web: Direto ao ponto - Maneiras de Liberar o Funcionário Bater Ponto",
+    category: "mobile_bater_ponto",
+    categoryName: "Ponto Mobile & Liberações",
+    duration: "Aula 10",
     author: "RwTech Oficial",
-    directUrl: "https://www.youtube.com/@rwtech_oficial/videos",
-    thumbnail: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&auto=format&fit=crop&q=80",
-    description: "Tratamento de marcações ímpares, inclusão de atestados médicos, cálculo de banco de horas e emissão do espelho para assinatura.",
+    published: "2025-07-08",
+    directUrl: `https://www.youtube.com/watch?v=5BtErS0HWVE&list=${PLAYLIST_ID}`,
+    thumbnail: "https://img.youtube.com/vi/5BtErS0HWVE/hqdefault.jpg",
+    description: "Conheça todas as formas e modelos de liberação para marcação de ponto: aplicativo móvel, biometria facial, senha ou relógio físico.",
     keyPoints: [
-      "Conferência diária rápida de inconsistências e atrasos.",
-      "Lançamento de justificativas e anexos médicos.",
-      "Exportação para sistemas de folha de pagamento."
+      "Liberação por aplicativo individual ou corporativo em tablet/celular.",
+      "Controle por cerca geográfica (GPS) e biometria facial com liveness.",
+      "Definição flexível de regras por perfil, departamento ou filial."
     ]
   },
   {
-    id: "assinatura-celular-ponto",
-    youtubeId: "6jg6iRtrUA0",
-    title: "Assinatura Eletrônica de Espelho de Ponto pelo Celular",
-    category: "relatorios",
-    categoryName: "Espelho & Fechamento",
-    duration: "Inovação",
+    id: "H5eqwtvPaXU",
+    youtubeId: "H5eqwtvPaXU",
+    title: "EzPoint Web: Direto ao ponto - Funcionalidades do Aplicativo Mobile",
+    category: "mobile_bater_ponto",
+    categoryName: "Ponto Mobile & Liberações",
+    duration: "Aula 09",
     author: "RwTech Oficial",
-    directUrl: "https://www.youtube.com/@rwtech_oficial/videos",
-    thumbnail: "https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=800&auto=format&fit=crop&q=80",
-    description: "Elimine custos de papel com a assinatura digital do espelho de ponto direto na tela do smartphone pelo colaborador com validade jurídica.",
+    published: "2025-07-01",
+    directUrl: `https://www.youtube.com/watch?v=H5eqwtvPaXU&list=${PLAYLIST_ID}`,
+    thumbnail: "https://img.youtube.com/vi/H5eqwtvPaXU/hqdefault.jpg",
+    description: "Tour completo pelas funcionalidades do aplicativo de ponto mobile: registro, consulta de extrato, solicitação de ajustes e atestados.",
     keyPoints: [
-      "Validade jurídica plena conforme a Portaria 671 MTE.",
-      "Notificação para revisão e assinatura do colaborador.",
-      "Armazenamento seguro em nuvem."
+      "Interface moderna e intuitiva para os colaboradores.",
+      "Comprovante digital emitido instantaneamente após a marcação.",
+      "Envio de justificativas de atrasos e atestados com foto pelo app."
     ]
   },
   {
-    id: "portaria-671-mte-guia",
-    youtubeId: "6jg6iRtrUA0",
-    title: "Portaria 671/2021 MTE: Regras de REP-P, REP-A e REP-C",
-    category: "legislacao",
-    categoryName: "Portaria 671 MTE",
-    duration: "Legislação",
+    id: "LvjRaqgXuHg",
+    youtubeId: "LvjRaqgXuHg",
+    title: "EzPoint Web: Direto ao ponto - Processo de Fechamento no EzPointWeb",
+    category: "fechamento_relatorios",
+    categoryName: "Fechamento & Relatórios",
+    duration: "Aula 08",
     author: "RwTech Oficial",
-    directUrl: "https://www.youtube.com/@rwtech_oficial/videos",
-    thumbnail: "https://images.unsplash.com/photo-1450133064473-71024230f91b?w=800&auto=format&fit=crop&q=80",
-    description: "Tudo o que o RH precisa saber sobre a Portaria 671: registradores homologados, exigência de AFD/AEJ e comprovação digital.",
+    published: "2025-06-24",
+    directUrl: `https://www.youtube.com/watch?v=LvjRaqgXuHg&list=${PLAYLIST_ID}`,
+    thumbnail: "https://img.youtube.com/vi/LvjRaqgXuHg/hqdefault.jpg",
+    description: "Passo a passo seguro para o fechamento mensal da folha de ponto: conferência, cálculo de banco de horas, tratamentos e bloqueio de período.",
     keyPoints: [
-      "Classificação dos modelos REP-P, REP-A e REP-C.",
-      "Geração dos arquivos fiscais AFD e AEJ.",
-      "Proteção jurídica contra autuações do MTE."
+      "Tratamento final de marcações faltantes ou ímpares.",
+      "Apuração consolidada de horas normais, extras, faltas e DSR.",
+      "Trava de segurança do período e exportação direta para a folha."
+    ]
+  },
+  {
+    id: "6NVZ7FXI4Ag",
+    youtubeId: "6NVZ7FXI4Ag",
+    title: "EzPoint Web: Direto ao ponto - Configurações Gerais de Preferências",
+    category: "configuracao",
+    categoryName: "Configurações & Parâmetros",
+    duration: "Aula 07",
+    author: "RwTech Oficial",
+    published: "2025-06-17",
+    directUrl: `https://www.youtube.com/watch?v=6NVZ7FXI4Ag&list=${PLAYLIST_ID}`,
+    thumbnail: "https://img.youtube.com/vi/6NVZ7FXI4Ag/hqdefault.jpg",
+    description: "Guia detalhado de parametrização das preferências da empresa no sistema para total conformidade com a CLT e acordos sindicais.",
+    keyPoints: [
+      "Definição de tolerâncias da CLT (10 minutos diários).",
+      "Configuração de jornadas padrões e percentuais de adicionais.",
+      "Prazos limites para solicitações de ajuste pelos funcionários."
+    ]
+  },
+  {
+    id: "D95CKGKNDaU",
+    youtubeId: "D95CKGKNDaU",
+    title: "EzPoint Web: Direto ao ponto - Gestão de Horários e Regras",
+    category: "regras_horarios",
+    categoryName: "Horários & Banco de Horas",
+    duration: "Aula 06",
+    author: "RwTech Oficial",
+    published: "2025-06-10",
+    directUrl: `https://www.youtube.com/watch?v=D95CKGKNDaU&list=${PLAYLIST_ID}`,
+    thumbnail: "https://img.youtube.com/vi/D95CKGKNDaU/hqdefault.jpg",
+    description: "Como criar e aplicar tabelas de horários fixos, flexíveis, escalas 12x36, 6x1 e associar regras sindicais aos colaboradores.",
+    keyPoints: [
+      "Criação de grades de horários fixos, flexíveis e escalas de revezamento.",
+      "Parametrização automática de intervalos intra e interjornada.",
+      "Atribuição de horários em lote por departamento ou função."
+    ]
+  },
+  {
+    id: "k-sHyC_-7vA",
+    youtubeId: "k-sHyC_-7vA",
+    title: "EzPoint Web: Direto ao ponto - Banco de Horas e Horas Extras",
+    category: "regras_horarios",
+    categoryName: "Horários & Banco de Horas",
+    duration: "Aula 05",
+    author: "RwTech Oficial",
+    published: "2025-06-03",
+    directUrl: `https://www.youtube.com/watch?v=k-sHyC_-7vA&list=${PLAYLIST_ID}`,
+    thumbnail: "https://img.youtube.com/vi/k-sHyC_-7vA/hqdefault.jpg",
+    description: "Configuração de porcentagens de horas extras (50%, 100%), regras de compensação de banco de horas e limites máximos diários.",
+    keyPoints: [
+      "Cálculo automático de banco de horas positivo e negativo.",
+      "Configuração de tabelas de horas extras para dias úteis, folgas e feriados.",
+      "Geração de extratos de compensação claros para os colaboradores."
+    ]
+  },
+  {
+    id: "BJbW_1SgEck",
+    youtubeId: "BJbW_1SgEck",
+    title: "EzPoint Web: Direto ao ponto - Relatórios Mais Usados no EzPoint Web",
+    category: "fechamento_relatorios",
+    categoryName: "Fechamento & Relatórios",
+    duration: "Aula 04",
+    author: "RwTech Oficial",
+    published: "2025-05-27",
+    directUrl: `https://www.youtube.com/watch?v=BJbW_1SgEck&list=${PLAYLIST_ID}`,
+    thumbnail: "https://img.youtube.com/vi/BJbW_1SgEck/hqdefault.jpg",
+    description: "Aprenda a gerar os principais relatórios: espelho de ponto, resumo de ocorrências, absenteísmo, banco de horas e arquivos fiscais AFD/AEJ.",
+    keyPoints: [
+      "Emissão do espelho de ponto individual ou consolidado por empresa.",
+      "Relatórios de ocorrências, atrasos, faltas e absenteísmo.",
+      "Exportação em PDF, planilhas Excel e arquivos fiscais da Portaria 671."
+    ]
+  },
+  {
+    id: "0kABlbuNR6I",
+    youtubeId: "0kABlbuNR6I",
+    title: "EzPoint Web: Direto ao ponto - Criação de Usuários Administradores",
+    category: "configuracao",
+    categoryName: "Configurações & Parâmetros",
+    duration: "Aula 03",
+    author: "RwTech Oficial",
+    published: "2025-05-20",
+    directUrl: `https://www.youtube.com/watch?v=0kABlbuNR6I&list=${PLAYLIST_ID}`,
+    thumbnail: "https://img.youtube.com/vi/0kABlbuNR6I/hqdefault.jpg",
+    description: "Como cadastrar novos gestores, supervisores e operadores no sistema definindo permissões específicas por setor ou filial.",
+    keyPoints: [
+      "Criação de perfis de acesso com permissões granulares.",
+      "Acesso restrito para gestores visualizarem apenas sua equipe.",
+      "Trilha de auditoria com histórico de todas as alterações feitas."
+    ]
+  },
+  {
+    id: "YwjnHrvAQIo",
+    youtubeId: "YwjnHrvAQIo",
+    title: "EzPoint Web: Direto ao ponto - Parametrização: Configure Seu Sistema de Ponto",
+    category: "configuracao",
+    categoryName: "Configurações & Parâmetros",
+    duration: "Aula 02",
+    author: "RwTech Oficial",
+    published: "2025-05-13",
+    directUrl: `https://www.youtube.com/watch?v=YwjnHrvAQIo&list=${PLAYLIST_ID}`,
+    thumbnail: "https://img.youtube.com/vi/YwjnHrvAQIo/hqdefault.jpg",
+    description: "Primeiros passos fundamentais na implantação do EzPoint Web: dados da empresa, estrutura organizacional e regras fundamentais.",
+    keyPoints: [
+      "Cadastro dos dados cadastrais da empresa e filiais (CNPJ).",
+      "Definição da estrutura de departamentos e centros de custo.",
+      "Boas práticas para início imediato e sem erros operacionais."
+    ]
+  },
+  {
+    id: "JYYoAlbLQkg",
+    youtubeId: "JYYoAlbLQkg",
+    title: "EzPoint Web: Direto ao ponto - Cálculos Noturnos do Espelho de Ponto",
+    category: "regras_horarios",
+    categoryName: "Horários & Banco de Horas",
+    duration: "Aula 01",
+    author: "RwTech Oficial",
+    published: "2025-05-06",
+    directUrl: `https://www.youtube.com/watch?v=JYYoAlbLQkg&list=${PLAYLIST_ID}`,
+    thumbnail: "https://img.youtube.com/vi/JYYoAlbLQkg/hqdefault.jpg",
+    description: "Como o sistema calcula automaticamente a hora noturna reduzida (52m30s), adicional noturno e prorrogação da jornada noturna.",
+    keyPoints: [
+      "Cálculo automático da hora noturna reduzida de 52min30s.",
+      "Adicional noturno urbano e prorrogação após as 05h da manhã.",
+      "Demonstração visual do cálculo direto no espelho de ponto."
     ]
   }
 ];
 
+// LISTA ATUAL DE VÍDEOS EM MEMÓRIA (CARREGADA DO CACHE OU PADRÃO)
+let currentVideos = loadCachedVideos();
+
+function loadCachedVideos() {
+  try {
+    const cached = localStorage.getItem("pajo_rwtech_playlist_cache_v2");
+    if (cached) {
+      const parsed = JSON.parse(cached);
+      if (Array.isArray(parsed) && parsed.length > 0) {
+        return parsed;
+      }
+    }
+  } catch (e) {
+    console.warn("Erro ao carregar cache de vídeos:", e);
+  }
+  return [...DEFAULT_VIDEOS];
+}
+
+function saveCachedVideos(videos) {
+  try {
+    localStorage.setItem("pajo_rwtech_playlist_cache_v2", JSON.stringify(videos));
+    localStorage.setItem("pajo_playlist_last_sync", new Date().toISOString());
+  } catch (e) {
+    console.warn("Erro ao salvar cache de vídeos:", e);
+  }
+}
+
+// INICIALIZAÇÃO DA PÁGINA
 document.addEventListener("DOMContentLoaded", () => {
   if (window.lucide) window.lucide.createIcons();
 
@@ -152,6 +317,11 @@ document.addEventListener("DOMContentLoaded", () => {
   initTheme();
   initVideoHub();
   initMobileDrawer();
+
+  // Sincronização automática em segundo plano com o feed da Playlist do YouTube
+  setTimeout(() => {
+    syncYouTubePlaylist(false);
+  }, 1200);
 });
 
 /* THEME */
@@ -171,6 +341,183 @@ function initTheme() {
   }
 }
 
+/* HELPER PARA CATEGORIZAR AUTOMATICAMENTE VÍDEOS NOVOS */
+function autoCategorizeVideo(title, desc) {
+  const text = `${title} ${desc}`.toLowerCase();
+
+  if (text.includes("relógio") || text.includes("relogio") || text.includes("blue") || text.includes("hardware") || text.includes("webserver") || text.includes("rep")) {
+    return { category: "relogios_hardware", categoryName: "Relógios & Hardware" };
+  }
+  if (text.includes("aplicativo") || text.includes("app") || text.includes("mobile") || text.includes("bater o ponto") || text.includes("facial") || text.includes("bater ponto")) {
+    return { category: "mobile_bater_ponto", categoryName: "Ponto Mobile & Liberações" };
+  }
+  if (text.includes("fechamento") || text.includes("relatório") || text.includes("relatorio") || text.includes("espelho") || text.includes("folha")) {
+    return { category: "fechamento_relatorios", categoryName: "Fechamento & Relatórios" };
+  }
+  if (text.includes("banco de horas") || text.includes("hora extra") || text.includes("noturno") || text.includes("escala") || text.includes("horário") || text.includes("horario")) {
+    return { category: "regras_horarios", categoryName: "Horários & Banco de Horas" };
+  }
+  return { category: "configuracao", categoryName: "Configurações & Parâmetros" };
+}
+
+/* SINCRONIZAÇÃO EM TEMPO REAL COM A PLAYLIST DO YOUTUBE */
+async function syncYouTubePlaylist(isManual = false) {
+  const syncBtn = document.getElementById("syncPlaylistBtn");
+  const syncStatus = document.getElementById("syncStatusText");
+  const syncIcon = document.getElementById("syncIcon");
+
+  if (syncIcon) syncIcon.classList.add("spinning");
+  if (syncStatus) syncStatus.textContent = "Sincronizando com o YouTube...";
+
+  const feedRssUrl = `https://www.youtube.com/feeds/videos.xml?playlist_id=${PLAYLIST_ID}`;
+  let fetchedItems = [];
+
+  // Método 1: API rss2json (CORS safe, rápido e estruturado)
+  try {
+    const rss2jsonUrl = `https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(feedRssUrl)}`;
+    const res = await fetch(rss2jsonUrl, { cache: "no-store" });
+    if (res.ok) {
+      const data = await res.json();
+      if (data.status === "ok" && Array.isArray(data.items) && data.items.length > 0) {
+        fetchedItems = data.items.map(item => {
+          // Extrair ID do YouTube do link (ex: https://www.youtube.com/watch?v=CBVuQZ39h5Q)
+          let vidId = "";
+          if (item.link) {
+            const match = item.link.match(/[?&]v=([^&#]+)/);
+            if (match) vidId = match[1];
+          }
+          if (!vidId && item.guid) {
+            const parts = item.guid.split(":");
+            vidId = parts[parts.length - 1];
+          }
+          return {
+            id: vidId,
+            youtubeId: vidId,
+            title: item.title || "Treinamento EzPoint Web",
+            desc: item.description || "",
+            published: item.pubDate || new Date().toISOString()
+          };
+        }).filter(v => v.youtubeId && v.youtubeId.length > 3);
+      }
+    }
+  } catch (err) {
+    console.warn("Método 1 rss2json falhou, tentando fallback...", err);
+  }
+
+  // Método 2: Fallback AllOrigins XML Parser (Caso rss2json falhe ou retorne incompleto)
+  if (fetchedItems.length === 0) {
+    try {
+      const proxyUrl = `https://api.allorigins.win/get?url=${encodeURIComponent(feedRssUrl)}`;
+      const res = await fetch(proxyUrl);
+      if (res.ok) {
+        const data = await res.json();
+        if (data.contents) {
+          const parser = new DOMParser();
+          const xmlDoc = parser.parseFromString(data.contents, "text/xml");
+          const entries = xmlDoc.querySelectorAll("entry");
+          entries.forEach(entry => {
+            const vidIdNode = entry.querySelector("videoId") || entry.getElementsByTagName("yt:videoId")[0];
+            const titleNode = entry.querySelector("title");
+            const descNode = entry.getElementsByTagName("media:description")[0];
+            const pubNode = entry.querySelector("published");
+
+            const vidId = vidIdNode ? vidIdNode.textContent.trim() : "";
+            if (vidId) {
+              fetchedItems.push({
+                id: vidId,
+                youtubeId: vidId,
+                title: titleNode ? titleNode.textContent.trim() : "Treinamento EzPoint Web",
+                desc: descNode ? descNode.textContent.trim() : "",
+                published: pubNode ? pubNode.textContent.trim() : new Date().toISOString()
+              });
+            }
+          });
+        }
+      }
+    } catch (err2) {
+      console.warn("Método 2 XML parser falhou:", err2);
+    }
+  }
+
+  // Processar itens encontrados e atualizar o estado da aplicação
+  let newVideosAdded = 0;
+  if (fetchedItems.length > 0) {
+    const existingIds = new Set(currentVideos.map(v => v.youtubeId));
+
+    fetchedItems.forEach(item => {
+      if (!existingIds.has(item.youtubeId)) {
+        const catInfo = autoCategorizeVideo(item.title, item.desc);
+        const newVideoObj = {
+          id: item.youtubeId,
+          youtubeId: item.youtubeId,
+          title: item.title,
+          category: catInfo.category,
+          categoryName: catInfo.categoryName,
+          duration: "Vídeo Novo",
+          author: "RwTech Oficial",
+          published: item.published,
+          directUrl: `https://www.youtube.com/watch?v=${item.youtubeId}&list=${PLAYLIST_ID}`,
+          thumbnail: `https://img.youtube.com/vi/${item.youtubeId}/hqdefault.jpg`,
+          description: item.desc ? item.desc.slice(0, 180) + "..." : "Novo treinamento oficial da série EzPoint Web: Direto ao ponto disponibilizado pela RwTech no YouTube.",
+          keyPoints: [
+            "Conteúdo atualizado publicado no canal oficial da RwTech.",
+            "Visualização em alta definição com passo a passo prático.",
+            "Acesso aos recursos oficiais do software EzPoint Web."
+          ]
+        };
+
+        // Adicionar novo vídeo no topo
+        currentVideos.unshift(newVideoObj);
+        existingIds.add(item.youtubeId);
+        newVideosAdded++;
+      }
+    });
+
+    saveCachedVideos(currentVideos);
+  }
+
+  if (syncIcon) syncIcon.classList.remove("spinning");
+
+  const now = new Date();
+  const timeStr = now.toLocaleTimeString("pt-BR", { hour: "2-digit", minute: "2-digit" });
+
+  if (syncStatus) {
+    if (newVideosAdded > 0) {
+      syncStatus.innerHTML = `<span class="sync-dot live"></span> Sincronizado: <strong>+${newVideosAdded} novos vídeos</strong> adicionados (${timeStr})`;
+    } else {
+      syncStatus.innerHTML = `<span class="sync-dot live"></span> Sincronizado com o YouTube (${timeStr}) &bull; <strong>${currentVideos.length} aulas</strong>`;
+    }
+  }
+
+  // Re-renderizar vídeos na interface
+  if (window.renderVideosGrid) {
+    window.renderVideosGrid();
+  }
+
+  if (isManual) {
+    showToastNotification(newVideosAdded > 0 
+      ? `Playlist atualizada! ${newVideosAdded} novos vídeos carregados.` 
+      : `Playlist sincronizada! Todos os ${currentVideos.length} vídeos estão atualizados.`);
+  }
+}
+
+/* NOTIFICAÇÃO TOAST */
+function showToastNotification(msg) {
+  let toast = document.getElementById("toastNotify");
+  if (!toast) {
+    toast = document.createElement("div");
+    toast.id = "toastNotify";
+    toast.className = "pajo-toast";
+    document.body.appendChild(toast);
+  }
+  toast.innerHTML = `<i data-lucide="check-circle-2"></i> <span>${msg}</span>`;
+  if (window.lucide) window.lucide.createIcons();
+  toast.classList.add("show");
+  setTimeout(() => {
+    toast.classList.remove("show");
+  }, 4000);
+}
+
 /* VIDEO HUB */
 function initVideoHub() {
   const container = document.getElementById("videosContainer");
@@ -178,6 +525,8 @@ function initVideoHub() {
   const clearBtn = document.getElementById("clearSearch");
   const tabs = document.querySelectorAll(".cat-tab");
   const countEl = document.getElementById("videoCountDisplay");
+  const syncBtn = document.getElementById("syncPlaylistBtn");
+  const openPlaylistModalBtn = document.getElementById("openPlaylistModalBtn");
 
   let activeCat = "all";
   let query = "";
@@ -185,7 +534,7 @@ function initVideoHub() {
   function render() {
     if (!container) return;
 
-    const filtered = RWTECH_VIDEOS.filter(v => {
+    const filtered = currentVideos.filter(v => {
       const matchCat = activeCat === "all" || v.category === activeCat;
       const matchQuery = query === "" ||
         v.title.toLowerCase().includes(query.toLowerCase()) ||
@@ -196,18 +545,20 @@ function initVideoHub() {
     });
 
     if (countEl) {
-      countEl.innerHTML = `Exibindo <strong>${filtered.length}</strong> de ${RWTECH_VIDEOS.length} tutoriais da RwTech`;
+      countEl.innerHTML = `Exibindo <strong>${filtered.length}</strong> de ${currentVideos.length} aulas da playlist oficial RWTECH`;
     }
 
     if (filtered.length === 0) {
       container.innerHTML = `
         <div class="v-empty">
-          <p>Nenhum treinamento encontrado para "${query}".</p>
+          <i data-lucide="search-x" class="empty-icon"></i>
+          <p>Nenhuma aula encontrada para <strong>"${query}"</strong>.</p>
           <button class="btn btn-primary btn-sm" style="margin-top: 0.75rem;" onclick="resetSearch()">
-            Ver Todos os Vídeos
+            <i data-lucide="refresh-cw"></i> Ver Todas as Aulas
           </button>
         </div>
       `;
+      if (window.lucide) window.lucide.createIcons();
       return;
     }
 
@@ -215,7 +566,7 @@ function initVideoHub() {
       return `
         <div class="video-card-item">
           <div class="v-thumb-box" onclick="openVideoPlayer('${v.id}')">
-            <img src="${v.thumbnail}" alt="${v.title}" class="v-thumb-img" loading="lazy">
+            <img src="${v.thumbnail}" alt="${v.title}" class="v-thumb-img" loading="lazy" onerror="this.src='https://img.youtube.com/vi/${v.youtubeId}/hqdefault.jpg'">
             <div class="v-play-mask">
               <div class="v-play-icon">
                 <i data-lucide="play"></i>
@@ -225,12 +576,12 @@ function initVideoHub() {
           </div>
           <div class="v-info">
             <span class="v-cat-tag">${v.categoryName}</span>
-            <h3 class="v-title" onclick="openVideoPlayer('${v.id}')">${v.title}</h3>
+            <h3 class="v-title" onclick="openVideoPlayer('${v.id}')" title="${v.title}">${v.title}</h3>
             <p class="v-desc">${v.description}</p>
             <div class="v-foot">
               <span class="v-author"><i data-lucide="youtube"></i> ${v.author}</span>
               <button class="btn-play-card" onclick="openVideoPlayer('${v.id}')">
-                <i data-lucide="play-circle"></i> Assistir
+                <i data-lucide="play-circle"></i> Assistir Aula
               </button>
             </div>
           </div>
@@ -240,6 +591,9 @@ function initVideoHub() {
 
     if (window.lucide) window.lucide.createIcons();
   }
+
+  // Exportar para recarregar após sincronização
+  window.renderVideosGrid = render;
 
   tabs.forEach(tab => {
     tab.addEventListener("click", () => {
@@ -271,6 +625,18 @@ function initVideoHub() {
     });
   }
 
+  if (syncBtn) {
+    syncBtn.addEventListener("click", () => {
+      syncYouTubePlaylist(true);
+    });
+  }
+
+  if (openPlaylistModalBtn) {
+    openPlaylistModalBtn.addEventListener("click", () => {
+      openFullPlaylistPlayer();
+    });
+  }
+
   window.resetSearch = function() {
     activeCat = "all";
     query = "";
@@ -294,7 +660,7 @@ function initModal() {
   const iframe = document.getElementById("videoPlayerFrame");
 
   window.openVideoPlayer = function(id) {
-    const video = RWTECH_VIDEOS.find(v => v.id === id);
+    const video = currentVideos.find(v => v.id === id || v.youtubeId === id);
     if (!video || !modal) return;
 
     document.getElementById("modalTag").textContent = video.categoryName;
@@ -304,19 +670,51 @@ function initModal() {
     const bullets = document.getElementById("modalBullets");
     if (bullets && video.keyPoints) {
       bullets.innerHTML = `
-        <strong>Tópicos abordados neste treinamento:</strong>
+        <strong>Tópicos abordados nesta aula:</strong>
         ${video.keyPoints.map(p => `<div>&bull; ${p}</div>`).join("")}
       `;
     }
 
     const ytLink = document.getElementById("modalYtLink");
     if (ytLink) {
-      ytLink.href = video.directUrl;
+      ytLink.href = video.directUrl || `https://www.youtube.com/watch?v=${video.youtubeId}&list=${PLAYLIST_ID}`;
     }
 
-    // Set real YouTube Embed
+    // Carregar player com vídeo específico mantendo o contexto da playlist
     if (iframe) {
-      iframe.src = `https://www.youtube.com/embed/${video.youtubeId}?autoplay=1&rel=0`;
+      iframe.src = `https://www.youtube.com/embed/${video.youtubeId}?autoplay=1&rel=0&list=${PLAYLIST_ID}`;
+    }
+
+    modal.classList.add("active");
+    document.body.style.overflow = "hidden";
+    if (window.lucide) window.lucide.createIcons();
+  };
+
+  window.openFullPlaylistPlayer = function() {
+    if (!modal) return;
+
+    document.getElementById("modalTag").textContent = "Playlist Completa RWTECH";
+    document.getElementById("modalTitle").textContent = "Série EzPoint Web: Direto ao ponto (Playlist Oficial)";
+    document.getElementById("modalDesc").textContent = "Assista a todas as aulas de capacitação em sequência no player oficial do YouTube com navegação por índice.";
+
+    const bullets = document.getElementById("modalBullets");
+    if (bullets) {
+      bullets.innerHTML = `
+        <strong>Conteúdos integrados nesta playlist:</strong>
+        <div>&bull; Gestão de jornadas, escalas e tabelas de horários.</div>
+        <div>&bull; Parametrização, preferências e criação de administradores.</div>
+        <div>&bull; Aplicativo mobile com reconhecimento facial e cercas GPS.</div>
+        <div>&bull; Fechamento de folha de ponto, banco de horas e relatórios.</div>
+      `;
+    }
+
+    const ytLink = document.getElementById("modalYtLink");
+    if (ytLink) {
+      ytLink.href = PLAYLIST_URL;
+    }
+
+    if (iframe) {
+      iframe.src = `https://www.youtube.com/embed/videoseries?list=${PLAYLIST_ID}&autoplay=1&rel=0`;
     }
 
     modal.classList.add("active");

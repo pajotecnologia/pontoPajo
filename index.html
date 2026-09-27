@@ -54,27 +54,20 @@
         </div>
       </a>
 
-      <!-- MAIN NAVIGATION (Sem redundância do botão início) -->
+      <!-- MAIN NAVIGATION -->
       <nav class="nav-links" id="navLinks">
         <a href="#solucao" class="nav-item">EZPoint Web</a>
         <a href="#recursos" class="nav-item">Funcionalidades</a>
         <a href="#portaria671" class="nav-item">Portaria 671</a>
-        <a href="#treinamento" class="nav-item nav-highlight-pill">
-          <i data-lucide="play-circle"></i> Central de Treinamentos
-        </a>
         <a href="#contato" class="nav-item">Contato</a>
       </nav>
 
-      <!-- HEADER ACTIONS -->
+      <!-- HEADER ACTIONS (Theme Toggle no canto direito) -->
       <div class="header-actions">
         <button id="themeToggle" class="btn-theme" title="Alternar tema claro/escuro" aria-label="Alternar tema">
           <i data-lucide="sun" class="icon-sun"></i>
           <i data-lucide="moon" class="icon-moon"></i>
         </button>
-
-        <a href="https://ezpointweb.com.br" target="_blank" rel="noopener" class="btn btn-primary btn-sm">
-          <i data-lucide="log-in"></i> Acessar EZPoint Web
-        </a>
 
         <button class="mobile-toggle-btn" id="mobileToggle" aria-label="Menu Mobile">
           <i data-lucide="menu"></i>
@@ -235,18 +228,28 @@
         
         <div class="section-heading">
           <span class="section-tag highlight-tag">
-            <i data-lucide="sparkles"></i> Capacitação Oficial
+            <i data-lucide="sparkles"></i> Capacitação Oficial RWTECH
           </span>
-          <h2>Central de Treinamentos <span class="gradient-text">Vídeos RWTECH</span></h2>
+          <h2>Central de Treinamentos <span class="gradient-text">EzPoint Web</span></h2>
           <p class="section-subtitle">
-            Tutoriais oficiais do canal da <strong>RWTECH</strong> sobre o funcionamento do <strong>EZPoint Web</strong>, aplicativo mobile, escalas de trabalho, espelho de ponto e relógios.
+            Série Oficial do YouTube: <strong>EzPoint Web: Direto ao ponto</strong>. Aulas práticas ministradas pela equipe oficial da <strong>RWTECH</strong> ensinando parametrizações, aplicativo mobile, escalas, espelhos e relógios.
           </p>
           
           <div class="yt-channel-banner">
-            <span>Canal Oficial RWTECH no YouTube:</span>
-            <a href="https://www.youtube.com/@rwtech_oficial/videos" target="_blank" rel="noopener" class="btn-yt">
-              <i data-lucide="youtube"></i> Visitar @rwtech_oficial no YouTube
+            <button class="btn-yt-playlist" id="openPlaylistModalBtn">
+              <i data-lucide="play-circle"></i> Assistir Playlist Completa
+            </button>
+            <a href="https://www.youtube.com/watch?v=CBVuQZ39h5Q&list=PLVRRzSJdt2auVSiXtSTKkhodyjZAJZnKY" target="_blank" rel="noopener" class="btn-yt">
+              <i data-lucide="youtube"></i> Abrir Playlist no YouTube
             </a>
+            <div class="sync-status-badge">
+              <span id="syncStatusText" class="sync-status-txt">
+                <span class="sync-dot live"></span> Sincronizado com o YouTube &bull; <strong>15 aulas</strong>
+              </span>
+              <button id="syncPlaylistBtn" class="btn-sync" title="Verificar atualizações no YouTube agora" aria-label="Sincronizar Playlist">
+                <i data-lucide="refresh-cw" id="syncIcon"></i> <span>Atualizar</span>
+              </button>
+            </div>
           </div>
         </div>
 
@@ -254,36 +257,36 @@
         <div class="card search-filter-card">
           <div class="search-input-wrap">
             <i data-lucide="search"></i>
-            <input type="text" id="searchInput" placeholder="Pesquisar tutoriais (ex: escala, espelho, mobile, portaria 671)...">
+            <input type="text" id="searchInput" placeholder="Pesquisar aulas (ex: banco de horas, espelho, fechamento, mobile, relógio blue, parâmetros)...">
             <button id="clearSearch" class="btn-clear" title="Limpar"><i data-lucide="x"></i></button>
           </div>
 
           <div class="category-tabs" id="categoryTabs">
             <button class="cat-tab active" data-cat="all">
-              <i data-lucide="layers"></i> Todos os Vídeos
+              <i data-lucide="layers"></i> Todas as Aulas
             </button>
-            <button class="cat-tab" data-cat="iniciante">
-              <i data-lucide="play"></i> Primeiros Passos
+            <button class="cat-tab" data-cat="configuracao">
+              <i data-lucide="sliders"></i> Configurações & Parâmetros
             </button>
-            <button class="cat-tab" data-cat="mobile">
-              <i data-lucide="smartphone"></i> App Mobile
+            <button class="cat-tab" data-cat="regras_horarios">
+              <i data-lucide="clock"></i> Horários & Banco de Horas
             </button>
-            <button class="cat-tab" data-cat="relatorios">
-              <i data-lucide="file-text"></i> Espelho & Fechamento
+            <button class="cat-tab" data-cat="fechamento_relatorios">
+              <i data-lucide="file-check"></i> Fechamento & Relatórios
             </button>
-            <button class="cat-tab" data-cat="relogios">
-              <i data-lucide="cpu"></i> Relógios RWTECH
+            <button class="cat-tab" data-cat="mobile_bater_ponto">
+              <i data-lucide="smartphone"></i> Ponto Mobile & Liberações
             </button>
-            <button class="cat-tab" data-cat="legislacao">
-              <i data-lucide="shield"></i> Portaria 671 MTE
+            <button class="cat-tab" data-cat="relogios_hardware">
+              <i data-lucide="cpu"></i> Relógios & Hardware
             </button>
           </div>
         </div>
 
         <!-- Status & Count -->
         <div class="video-status-bar">
-          <span id="videoCountDisplay">Exibindo <strong>8</strong> tutoriais da RwTech</span>
-          <span class="click-hint"><i data-lucide="info"></i> Clique no vídeo para ver detalhes e tópicos abordados</span>
+          <span id="videoCountDisplay">Exibindo <strong>15</strong> aulas da playlist oficial RWTECH</span>
+          <span class="click-hint"><i data-lucide="info"></i> Clique em qualquer aula para assistir com suporte a tópicos</span>
         </div>
 
         <!-- Videos Grid -->
