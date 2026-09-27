@@ -958,7 +958,7 @@ button, input, select, textarea {
   justify-content: space-between;
   border-top: 1px solid var(--border-subtle);
   padding-top: 0.65rem;
-  font-size: 0.72rem;
+  font-size: 0.75rem;
   color: var(--text-muted);
 }
 
@@ -975,16 +975,29 @@ button, input, select, textarea {
   color: #ff0000;
 }
 
-.v-link-yt {
+.btn-play-card {
+  background: rgba(16, 185, 129, 0.12);
+  border: 1px solid rgba(16, 185, 129, 0.3);
+  color: var(--brand-green);
+  padding: 0.25rem 0.65rem;
+  border-radius: var(--radius-sm);
+  font-size: 0.75rem;
+  font-weight: 700;
+  cursor: pointer;
   display: inline-flex;
   align-items: center;
-  gap: 0.25rem;
-  color: var(--brand-blue);
-  font-weight: 600;
+  gap: 0.3rem;
+  transition: var(--transition);
 }
 
-.v-link-yt:hover {
-  text-decoration: underline;
+.btn-play-card:hover {
+  background: var(--brand-green);
+  color: #062419;
+}
+
+.btn-play-card i {
+  width: 13px;
+  height: 13px;
 }
 
 .v-empty {
@@ -1180,7 +1193,7 @@ button, input, select, textarea {
 }
 
 /* ==========================================================================
-   CONTACT SECTION (Limpo & Direto)
+   CONTACT SECTION
    ========================================================================== */
 .contact-clean-wrapper {
   max-width: 680px;
@@ -1234,7 +1247,7 @@ button, input, select, textarea {
 }
 
 /* ==========================================================================
-   FOOTER (Limpo)
+   FOOTER
    ========================================================================== */
 .footer {
   background: var(--bg-surface);

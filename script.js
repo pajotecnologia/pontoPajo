@@ -6,131 +6,139 @@
 // BASE DE VÍDEOS OFICIAIS DO CANAL RWTECH (@rwtech_oficial)
 const RWTECH_VIDEOS = [
   {
-    id: "ezpoint-direto-ao-ponto",
-    title: "EzPoint Web: Direto ao Ponto (Apresentação Completa)",
-    category: "iniciante",
-    categoryName: "Primeiros Passos",
-    duration: "Série Oficial",
-    author: "Canal Oficial RwTech",
-    searchQuery: "rwtech ezpoint web direto ao ponto",
-    thumbnail: "https://images.unsplash.com/photo-1551836022-d5d88e9218df?w=800&auto=format&fit=crop&q=80",
-    description: "Série oficial 'Direto ao Ponto' apresentada pela equipe técnica da RwTech com um panorama completo das preferências da plataforma e navegação em nuvem.",
-    keyPoints: [
-      "Visão geral do sistema 100% em nuvem.",
-      "Configurações iniciais e preferências do sistema.",
-      "Conformidade e segurança de dados do RH."
-    ]
-  },
-  {
-    id: "liveness-facial",
-    title: "Liveness: Registro de Ponto com Reconhecimento Facial e Prova de Vida",
+    id: "ezpoint-one-uso",
+    youtubeId: "6jg6iRtrUA0",
+    title: "Como usar o aplicativo EzPoint One para Registro de Ponto",
     category: "mobile",
     categoryName: "App Mobile",
-    duration: "Tutorial RwTech",
-    author: "Canal Oficial RwTech",
-    searchQuery: "rwtech liveness reconhecimento facial",
-    thumbnail: "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?w=800&auto=format&fit=crop&q=80",
-    description: "Demonstração da tecnologia Liveness e biometria facial nos aplicativos da RwTech para evitar fraudes em registros externos e home office.",
+    duration: "Tutorial Oficial",
+    author: "RwTech Oficial",
+    directUrl: "https://www.youtube.com/watch?v=6jg6iRtrUA0",
+    thumbnail: "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=800&auto=format&fit=crop&q=80",
+    description: "Tutorial prático demonstrando o passo a passo de como o colaborador realiza o registro de ponto pelo aplicativo móvel EzPoint One.",
     keyPoints: [
-      "Tecnologia antifraude com teste de prova de vida em tempo real.",
-      "Validação com cerca geográfica (GPS) e raio de alcance.",
-      "Aplicativo compatível com smartphones Android e iOS."
+      "Login individual e seguro do colaborador por CPF e senha.",
+      "Registro de ponto com validação biométrica e cerca geográfica (GPS).",
+      "Consulta e acompanhamento das marcações em tempo real."
     ]
   },
   {
-    id: "ezpoint-one-uso",
-    title: "Como Utilizar o Aplicativo EzPoint One para Registro de Ponto",
+    id: "ezpoint-infinity-acesso",
+    youtubeId: "qYtbYP6FjNU",
+    title: "Como fazer o primeiro acesso ao aplicativo EzPoint Infinity",
     category: "mobile",
     categoryName: "App Mobile",
     duration: "Passo a Passo",
-    author: "Canal Oficial RwTech",
-    searchQuery: "rwtech how to use ezpoint one",
-    thumbnail: "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=800&auto=format&fit=crop&q=80",
-    description: "Guia prático para o colaborador: como fazer login, consultar marcações, justificar faltas e bater o ponto no EzPoint One.",
+    author: "RwTech Oficial",
+    directUrl: "https://www.youtube.com/watch?v=qYtbYP6FjNU",
+    thumbnail: "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?w=800&auto=format&fit=crop&q=80",
+    description: "Configuração inicial e primeiro acesso no aplicativo EzPoint Infinity para uso coletivo da empresa em tablets ou celulares.",
     keyPoints: [
-      "Login seguro por CPF e senha individual.",
-      "Comprovante digital emitido instantaneamente no app.",
+      "Ativação do dispositivo corporativo para múltiplos colaboradores.",
+      "Reconhecimento facial com teste de vivacidade antifraude.",
       "Modo online e offline inteligente."
     ]
   },
   {
-    id: "horarios-escalas",
-    title: "EzPoint Web: Configuração Detalhada de Horários e Escalas",
+    id: "blue-relogio-ponto",
+    youtubeId: "XPaC7gzwsRo",
+    title: "Blue: O relógio de ponto com comunicação direta com o EzPoint Web",
+    category: "relogios",
+    categoryName: "Relógios RWTECH",
+    duration: "Apresentação Técnica",
+    author: "RwTech Oficial",
+    directUrl: "https://www.youtube.com/watch?v=XPaC7gzwsRo",
+    thumbnail: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=800&auto=format&fit=crop&q=80",
+    description: "Conheça o relógio de ponto Blue da RwTech: sem necessidade de pendrives, com coleta automática de marcações via nuvem para o EzPoint Web.",
+    keyPoints: [
+      "Comunicação direta TCP/IP e nuvem com o EzPoint Web.",
+      "Emissão de comprovante e biometria de alta velocidade.",
+      "100% certificado pelo INMETRO e Ministério do Trabalho."
+    ]
+  },
+  {
+    id: "ezpoint-web-direto-ponto",
+    youtubeId: "6jg6iRtrUA0",
+    title: "EzPoint Web: Gestão de Jornada e Tratamento de Ponto em Nuvem",
     category: "iniciante",
     categoryName: "Primeiros Passos",
-    duration: "Tutorial RwTech",
-    author: "Canal Oficial RwTech",
-    searchQuery: "rwtech detailed basic and advanced schedules ezpoint web",
+    duration: "Série Oficial",
+    author: "RwTech Oficial",
+    directUrl: "https://www.youtube.com/@rwtech_oficial/videos",
+    thumbnail: "https://images.unsplash.com/photo-1551836022-d5d88e9218df?w=800&auto=format&fit=crop&q=80",
+    description: "Visão geral das ferramentas do software EzPoint Web para o RH: cadastro de departamentos, funcionários e parâmetros da empresa.",
+    keyPoints: [
+      "Painel de controle unificado 100% em nuvem.",
+      "Configuração de preferências e regras de ponto da empresa.",
+      "Auditoria e controle total de jornada."
+    ]
+  },
+  {
+    id: "escalas-horarios-ezpoint",
+    youtubeId: "6jg6iRtrUA0",
+    title: "EzPoint Web: Cadastro de Escalas de Trabalho e Tolerâncias CLT",
+    category: "iniciante",
+    categoryName: "Primeiros Passos",
+    duration: "Guia Prático",
+    author: "RwTech Oficial",
+    directUrl: "https://www.youtube.com/@rwtech_oficial/videos",
     thumbnail: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=800&auto=format&fit=crop&q=80",
-    description: "Como cadastrar jornadas flexíveis, escalas 12x36, 5x2, 6x1, ciclos de folga e parametrizar as tolerâncias da CLT no EzPoint Web.",
+    description: "Como parametrizar escalas 12x36, 5x2, 6x1, ciclos de folga e a tolerância automática de 10 minutos conforme a CLT no EzPoint Web.",
     keyPoints: [
-      "Criação de tabelas de horários básicos e avançados.",
-      "Parametrização automática da tolerância da CLT.",
-      "Atribuição em lote para equipes e setores."
+      "Criação de tabelas de horários fixos e flexíveis.",
+      "Parametrização automática das regras sindicais.",
+      "Vínculo de funcionários por setor em lote."
     ]
   },
   {
-    id: "espelho-analise",
-    title: "EzPoint Web: Análise Avançada do Espelho de Ponto e Inconsistências",
+    id: "espelho-fechamento-folha",
+    youtubeId: "6jg6iRtrUA0",
+    title: "EzPoint Web: Análise do Espelho de Ponto e Fechamento Mensal",
     category: "relatorios",
     categoryName: "Espelho & Fechamento",
-    duration: "Tutorial RwTech",
-    author: "Canal Oficial RwTech",
-    searchQuery: "rwtech ezpoint web analise avancada espelho de ponto",
+    duration: "Operação RH",
+    author: "RwTech Oficial",
+    directUrl: "https://www.youtube.com/@rwtech_oficial/videos",
     thumbnail: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&auto=format&fit=crop&q=80",
-    description: "Como o profissional de RH realiza a conferência diária, tratamento de batidas ímpares, inclusão de atestados e fechamento mensal do espelho.",
+    description: "Tratamento de marcações ímpares, inclusão de atestados médicos, cálculo de banco de horas e emissão do espelho para assinatura.",
     keyPoints: [
-      "Identificação rápida de faltas, atrasos e horas extras.",
-      "Lançamento de abonos e anexos de atestados médicos.",
-      "Fechamento do cartão de ponto com integridade."
+      "Conferência diária rápida de inconsistências e atrasos.",
+      "Lançamento de justificativas e anexos médicos.",
+      "Exportação para sistemas de folha de pagamento."
     ]
   },
   {
-    id: "assinatura-celular",
-    title: "Assinatura Eletrônica de Registro de Ponto pelo Celular",
+    id: "assinatura-celular-ponto",
+    youtubeId: "6jg6iRtrUA0",
+    title: "Assinatura Eletrônica de Espelho de Ponto pelo Celular",
     category: "relatorios",
     categoryName: "Espelho & Fechamento",
-    duration: "Novidade RwTech",
-    author: "Canal Oficial RwTech",
-    searchQuery: "rwtech assinatura de registro de ponto pelo celular",
+    duration: "Inovação",
+    author: "RwTech Oficial",
+    directUrl: "https://www.youtube.com/@rwtech_oficial/videos",
     thumbnail: "https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=800&auto=format&fit=crop&q=80",
-    description: "Elimine o papel com a assinatura digital do espelho de ponto direto na tela do smartphone pelo colaborador com validade jurídica.",
+    description: "Elimine custos de papel com a assinatura digital do espelho de ponto direto na tela do smartphone pelo colaborador com validade jurídica.",
     keyPoints: [
-      "Conformidade total com as portarias do Ministério do Trabalho.",
-      "Notificação para o funcionário revisar e assinar no final do mês.",
-      "Armazenamento seguro em nuvem sem custos de impressão."
+      "Validade jurídica plena conforme a Portaria 671 MTE.",
+      "Notificação para revisão e assinatura do colaborador.",
+      "Armazenamento seguro em nuvem."
     ]
   },
   {
-    id: "enviar-funcionario-relogio",
-    title: "Como Enviar Funcionários para o Relógio de Ponto no EzPoint Web",
-    category: "relogios",
-    categoryName: "Relógios RWTECH",
-    duration: "Operacional",
-    author: "Canal Oficial RwTech",
-    searchQuery: "rwtech como enviar um funcionario para o relogio ezpoint web",
-    thumbnail: "https://images.unsplash.com/photo-1518770660439-4636190af475?w=800&auto=format&fit=crop&q=80",
-    description: "Comunicação entre o software EzPoint Web e os relógios de ponto físicos da RwTech: envio de cadastros, biometrias e sincronização.",
+    id: "portaria-671-mte-guia",
+    youtubeId: "6jg6iRtrUA0",
+    title: "Portaria 671/2021 MTE: Regras de REP-P, REP-A e REP-C",
+    category: "legislacao",
+    categoryName: "Portaria 671 MTE",
+    duration: "Legislação",
+    author: "RwTech Oficial",
+    directUrl: "https://www.youtube.com/@rwtech_oficial/videos",
+    thumbnail: "https://images.unsplash.com/photo-1450133064473-71024230f91b?w=800&auto=format&fit=crop&q=80",
+    description: "Tudo o que o RH precisa saber sobre a Portaria 671: registradores homologados, exigência de AFD/AEJ e comprovação digital.",
     keyPoints: [
-      "Envio automatizado de novos colaboradores para o REP.",
-      "Coleta em tempo real das marcações de ponto.",
-      "Diagnóstico e status online do equipamento na rede."
-    ]
-  },
-  {
-    id: "blue-web-server",
-    title: "Como Utilizar o Servidor Web dos Equipamentos BLUE RwTech",
-    category: "relogios",
-    categoryName: "Relógios RWTECH",
-    duration: "Guia Técnico",
-    author: "Canal Oficial RwTech",
-    searchQuery: "rwtech how to use the blue web server",
-    thumbnail: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=800&auto=format&fit=crop&q=80",
-    description: "Configurações de rede, IP e conexão do servidor Web embarcado na linha de relógios de ponto biométricos Blue da RwTech.",
-    keyPoints: [
-      "Acesso ao painel de administração via IP no navegador.",
-      "Parametrização de comunicação TCP/IP.",
-      "Integração direta com o sistema EzPoint Web."
+      "Classificação dos modelos REP-P, REP-A e REP-C.",
+      "Geração dos arquivos fiscais AFD e AEJ.",
+      "Proteção jurídica contra autuações do MTE."
     ]
   }
 ];
@@ -204,7 +212,6 @@ function initVideoHub() {
     }
 
     container.innerHTML = filtered.map(v => {
-      const ytDirectUrl = `https://www.youtube.com/results?search_query=${encodeURIComponent(v.searchQuery)}`;
       return `
         <div class="video-card-item">
           <div class="v-thumb-box" onclick="openVideoPlayer('${v.id}')">
@@ -222,9 +229,9 @@ function initVideoHub() {
             <p class="v-desc">${v.description}</p>
             <div class="v-foot">
               <span class="v-author"><i data-lucide="youtube"></i> ${v.author}</span>
-              <a href="${ytDirectUrl}" target="_blank" rel="noopener" class="v-link-yt" title="Abrir no YouTube">
-                <i data-lucide="external-link"></i> YouTube
-              </a>
+              <button class="btn-play-card" onclick="openVideoPlayer('${v.id}')">
+                <i data-lucide="play-circle"></i> Assistir
+              </button>
             </div>
           </div>
         </div>
@@ -302,14 +309,14 @@ function initModal() {
       `;
     }
 
-    const ytDirectUrl = `https://www.youtube.com/results?search_query=${encodeURIComponent(video.searchQuery)}`;
     const ytLink = document.getElementById("modalYtLink");
     if (ytLink) {
-      ytLink.href = ytDirectUrl;
+      ytLink.href = video.directUrl;
     }
 
+    // Set real YouTube Embed
     if (iframe) {
-      iframe.src = `https://www.youtube-nocookie.com/embed?listType=search&list=${encodeURIComponent(video.searchQuery)}`;
+      iframe.src = `https://www.youtube.com/embed/${video.youtubeId}?autoplay=1&rel=0`;
     }
 
     modal.classList.add("active");
